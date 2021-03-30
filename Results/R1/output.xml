@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.0 (Python 3.9.1 on darwin)" generated="20210327 11:05:32.442" rpa="false" schemaversion="2">
+<suite id="s1" name="TikiSampleTest" source="/Users/trunglv/PycharmProjects/RobotDemo/Tests/Suite1/TikiSampleTest.robot">
+<test id="s1-t1" name="Test search a random key text on Tiki">
+<kw name="Start Test" library="BasicSetup" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://tiki.vn</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20210327 11:05:32.734" level="INFO">Opening browser 'chrome' to base url 'https://tiki.vn'.</msg>
+<status status="PASS" starttime="20210327 11:05:32.734" endtime="20210327 11:05:37.440"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20210327 11:05:37.441" endtime="20210327 11:05:37.765"/>
+</kw>
+<status status="PASS" starttime="20210327 11:05:32.733" endtime="20210327 11:05:37.765"/>
+</kw>
+<kw name="Input search text" library="StepDefine">
+<arg>điện thoại</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${SearchTextBox}</arg>
+<arg>${Text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20210327 11:05:37.768" level="INFO">Typing text 'điện thoại' into text field 'xpath://*[@id="__next"]/div[1]/header/div[1]/div/div[1]/div[2]/div/input'.</msg>
+<status status="PASS" starttime="20210327 11:05:37.767" endtime="20210327 11:05:38.203"/>
+</kw>
+<status status="PASS" starttime="20210327 11:05:37.766" endtime="20210327 11:05:38.203"/>
+</kw>
+<kw name="Click search button" library="StepDefine">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${SearchButton}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20210327 11:05:38.204" level="INFO">Clicking button 'xpath://*[@id="__next"]/div[1]/header/div[1]/div/div[1]/div[2]/div/button'.</msg>
+<status status="PASS" starttime="20210327 11:05:38.204" endtime="20210327 11:05:38.347"/>
+</kw>
+<status status="PASS" starttime="20210327 11:05:38.203" endtime="20210327 11:05:38.348"/>
+</kw>
+<kw name="Wait for expected text visible" library="StepDefine">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//*[@id="__next"]/div[1]/main/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/h1</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20210327 11:05:38.348" endtime="20210327 11:05:39.856"/>
+</kw>
+<status status="PASS" starttime="20210327 11:05:38.348" endtime="20210327 11:05:39.856"/>
+</kw>
+<kw name="Scroll to expected device" library="StepDefine">
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//*[@id="__next"]/div[1]/main/div[2]/div[1]/div[2]/div[1]/div[2]/a[21]/span/div/div[2]/div[2]/span</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210327 11:05:40.463" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210327 11:05:39.914" endtime="20210327 11:05:40.463"/>
+</kw>
+<msg timestamp="20210327 11:05:40.472" level="FAIL">Element with locator '//*[@id="__next"]/div[1]/main/div[2]/div[1]/div[2]/div[1]/div[2]/a[21]/span/div/div[2]/div[2]/span' not found.</msg>
+<status status="FAIL" starttime="20210327 11:05:39.857" endtime="20210327 11:05:40.472"/>
+</kw>
+<status status="FAIL" starttime="20210327 11:05:39.856" endtime="20210327 11:05:40.473"/>
+</kw>
+<kw name="End Test" library="BasicSetup" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20210327 11:05:40.474" endtime="20210327 11:05:40.639"/>
+</kw>
+<status status="PASS" starttime="20210327 11:05:40.473" endtime="20210327 11:05:40.640"/>
+</kw>
+<tag>DEBUG</tag>
+<status status="FAIL" starttime="20210327 11:05:32.732" endtime="20210327 11:05:40.640">Element with locator '//*[@id="__next"]/div[1]/main/div[2]/div[1]/div[2]/div[1]/div[2]/a[21]/span/div/div[2]/div[2]/span' not found.</status>
+</test>
+<doc>Suite description</doc>
+<status status="FAIL" starttime="20210327 11:05:32.445" endtime="20210327 11:05:40.641"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">DEBUG</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="TikiSampleTest">TikiSampleTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
