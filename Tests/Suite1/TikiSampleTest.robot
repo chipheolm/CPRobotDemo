@@ -11,5 +11,9 @@ Test search a random key text on Tiki
     input search text  điện thoại
     click search button
     wait for expected text visible
-    Scroll to expected device
+Test case for search baby toys
+    [Tags]  DEBUG
+    sleep  3s
+    click to cart
+    wait and continue shopping
 *** Keywords ***
