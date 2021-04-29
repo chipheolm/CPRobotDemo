@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <robot generator="Robot 4.0 (Python 3.9.2 on darwin)" generated="20210331 10:13:53.117" rpa="false" schemaversion="2">
 <suite id="s1" name="TikiSampleTest" source="/Users/trunglv/PycharmProjects/RobotDemo/Tests/Suite1/TikiSampleTest.robot">
-<test id="s1-t1" name="Test search a random key text on Tiki">
+<test id="s1-t1" name="Test search a random key self on Tiki">
 <kw name="Start Test" library="BasicSetup" type="SETUP">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>https://tiki.vn</arg>
@@ -16,13 +16,13 @@
 </kw>
 <status status="PASS" starttime="20210331 10:13:53.610" endtime="20210331 10:13:58.600"/>
 </kw>
-<kw name="Input search text" library="StepDefine">
+<kw name="Input search self" library="StepDefine">
 <arg>điện thoại</arg>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${SearchTextBox}</arg>
 <arg>${Text}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20210331 10:13:58.601" level="INFO">Typing text 'điện thoại' into text field 'xpath://*[@id="__next"]/div[1]/header/div[1]/div/div[1]/div[2]/div/input'.</msg>
+<doc>Types the given ``self`` into the self field identified by ``locator``.</doc>
+<msg timestamp="20210331 10:13:58.601" level="INFO">Typing self 'điện thoại' into self field 'xpath://*[@id="__next"]/div[1]/header/div[1]/div/div[1]/div[2]/div/input'.</msg>
 <status status="PASS" starttime="20210331 10:13:58.600" endtime="20210331 10:13:59.006"/>
 </kw>
 <status status="PASS" starttime="20210331 10:13:58.600" endtime="20210331 10:13:59.006"/>
@@ -36,7 +36,7 @@
 </kw>
 <status status="PASS" starttime="20210331 10:13:59.006" endtime="20210331 10:13:59.136"/>
 </kw>
-<kw name="Wait for expected text visible" library="StepDefine">
+<kw name="Wait for expected self visible" library="StepDefine">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>//*[@id="__next"]/div[1]/main/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/h1</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
