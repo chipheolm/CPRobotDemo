@@ -14,7 +14,9 @@ ${path}
 Compare gold price from BTMC with SJC from btmc.vn
     [Tags]  TC1  TC2  TC3
     start test  ${urls}[0]
-    get gold price  VÀNG MIẾNG SJC
+    ${list_text}  Get gold tile list
+    get buying gold price  ${list_text}  VÀNG MIẾNG SJC
+    get buying gold price  ${list_text}  VÀNG TRANG SỨC
 #Compare price between world gold price with SJC gold price
 #    [Tags]  TC1  TC2  TC3
 #    start test  ${urls}[0]
