@@ -4,15 +4,14 @@ class GetPricePerformance:
             for i, line in enumerate(f, 1):
                 if time_stamp in line:
                     line_num = i
-        with open(file) as f:
-            for i, line in enumerate(f, 1):
-                if i == line_num+7:
+                if i == line_num + 7:
                     return line
 
-    def write_file(self, fname):
-        with open('text.txt', 'w') as f:
+    def write_file(self, fname, file_path):
+        file_path += '/text.txt'
+        with open(file_path, 'w') as f:
             f.write(str(fname).replace("\n\n", "\n"))
-        return 'text.txt'
+        return file_path
 
     def main(self):
         text = self.get_price_performance('text.txt')

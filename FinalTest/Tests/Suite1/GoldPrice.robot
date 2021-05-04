@@ -9,17 +9,21 @@ Resource  ../../Resources/GoldPriceObject.robot
 Test Setup  Start Test
 Test Teardown  End Test
 *** Variables ***
-${path}  image.png
+${path}
 ${text}
 *** Test Cases ***
 Test get VND performance price on GoldPrice
     [Tags]    TC1
     Select VND unit
     sleep  2S
-    Get Gold performance image  ${path}
-    ${text}  get text from image  Results/R2/${path}
-    log  ${text}
-    write file  ${text}
-    ${index}  get price performance  text.txt  6 Months
-    log  ${index}
+    Get Gold performance image  image.png
+    ${text}  get text from image  Results/R2/image.png
+    Get price change with time stamp  ${text}  6 Months
+
 *** Keywords ***
+Get price change with time stamp
+    [Arguments]  ${text}  ${time_stamp}
+    ${text_redefine}  replace string  ${text}  '\n\n'  '\n'
+    log  ${text_redefine}
+    ${index}  get line  ${text_redefine}  ${time_stamp}
+    get line  ${text_redefine}  ${index}+7

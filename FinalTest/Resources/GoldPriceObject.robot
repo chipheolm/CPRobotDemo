@@ -1,5 +1,6 @@
 *** Settings ***
 Library  SeleniumLibrary
+Library  String
 Resource  ElementDefine.robot
 *** Variables ***
 ${priceUnit}  xpath://select[@id='gpxPerformanceGold_currency']
