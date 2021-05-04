@@ -2,7 +2,8 @@
 Library  SeleniumLibrary
 *** Keywords ***
 Start Test
-    open browser  https://goldprice.org/  chrome
+    [Arguments]  ${url}
+    open browser  ${url}  chrome
     maximize browser window
 End Test
     close browser

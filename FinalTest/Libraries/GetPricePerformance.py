@@ -12,7 +12,5 @@ class GetPricePerformance:
         with open(file_path, 'w') as f:
             f.write(str(fname).replace("\n\n", "\n"))
         return file_path
-
-    def main(self):
-        text = self.get_price_performance('text.txt')
-        print(text)
+    name = str('co\n\nmot\nnguoi\nvan\nyeu\n\nmot\nnguoi')
+    print(name.replace('\n\n','\n'))
