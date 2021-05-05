@@ -3,10 +3,11 @@ Library  SeleniumLibrary
 Library  String
 Library  Collections
 *** Variables ***
+${gold_price_url}  http://goldprice.org/
 ${priceUnit}  xpath://select[@id='gpxPerformanceGold_currency']
 ${GoldPricePerformaceImage}  xpath://img[@id='gpxPerformanceGold_img']
 *** Keywords ***
-Select money unit
+Select price performace money unit
     [Arguments]  ${money_unit}
     select from list by value  ${priceUnit}  ${money_unit}
     sleep  2S

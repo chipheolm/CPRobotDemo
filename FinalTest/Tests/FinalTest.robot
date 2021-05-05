@@ -8,26 +8,29 @@ Resource  ../Resources/PageObjects/BTMCPage.robot
 Test Teardown  end test
 *** Variables ***
 ${path}
-@{urls}  https://btmc.vn  https://goldprice.org/
-@{gold_change_time_stamp}  Today  30 Days  6 Months  1 Year  5 Years  20 Years
+${TC3Image}  tc3_image.png
+@{GoldChangeTimeStamp}  Today  30 Days  6 Months  1 Year  5 Years  20 Years
+&{money_unit}  usd=USD  vnd=VND
+&{gold_type}  sjc=VÀNG MIẾNG SJC  btmc=VÀNG TRANG SỨC
 *** Test Cases ***
 Compare gold price from BTMC with SJC from btmc.vn
     [Tags]  TC1  TC2  TC3
-    start test  ${urls}[0]
+    start test  ${btmc_url}
     ${list_text}  Get gold tile list
-    get buying gold price  ${list_text}  VÀNG MIẾNG SJC
-    get buying gold price  ${list_text}  VÀNG TRANG SỨC
+    ${sjc_price}  get buying gold price  ${list_text}  ${gold_type.sjc}
+    ${sjc_price}  Get 1 ounce gold price  ${sjc_price}  ${gold_type.sjc}
+    ${btmc_price}  get buying gold price  ${list_text}  ${gold_type.btmc}
+    ${btmc_price}  Get 1 ounce gold price   ${btmc_price}  ${gold_type.btmc}
+    compare 1 ounce gold price between  ${gold_type.sjc}  ${sjc_price}  ${gold_type.btmc}  ${btmc_price}
 Compare price between world gold price with SJC gold price
     [Tags]  TC1  TC2  TC3
-    start test  ${urls}[0]
-    end test
+    start test  BTMCPage.${btmc_url}
 Get gold price change by time on GoldPrice
     [Tags]  TC1  TC2  TC3
-    start test  ${urls}[1]
-    Select money unit  VND
-    Get Gold performance image  image.png
-    ${text}  get text from image  ${OUTPUTDIR}/image.png
-    Get price change by time stamp  ${text}  ${gold_change_time_stamp}[1]
-    Get price change by time stamp  ${text}  ${gold_change_time_stamp}[2]
-    end test
+    start test  ${gold_price_url}
+    Select price performace money unit  ${money_unit.vnd}
+    Get Gold performance image  ${TC3Image}
+    ${text}  get text from image  ${OUTPUTDIR}/${TC3Image}
+    Get price change by time stamp  ${text}  ${GoldChangeTimeStamp}[1]
+    Get price change by time stamp  ${text}  ${GoldChangeTimeStamp}[2]
 
