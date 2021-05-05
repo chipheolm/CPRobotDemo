@@ -4,16 +4,21 @@ Library  String
 Library  Collections
 *** Variables ***
 ${gold_price_url}  http://goldprice.org/
-${priceUnit}  xpath://select[@id='gpxPerformanceGold_currency']
-${GoldPricePerformaceImage}  xpath://img[@id='gpxPerformanceGold_img']
+${performance_price_unit}  xpath://select[@id='gpxPerformanceGold_currency']
+${gold_price_performace_image}  xpath://img[@id='gpxPerformanceGold_img']
+${current_gold_money_unit_select}  xpath://select[@id='gpxtickerLeft_curr']
+${current_gold_weight_unit}  xpath://select[@id='gpxtickerLeft_wgt-au']
+${current_price}  xpath://span[@id='gpxtickerLeft_price']
 *** Keywords ***
 Select price performace money unit
     [Arguments]  ${money_unit}
-    select from list by value  ${priceUnit}  ${money_unit}
+    select from list by value  ${performance_price_unit}  ${money_unit}
     sleep  2S
-Get gold performance image
-    [Arguments]  ${path}
-    capture element screenshot  ${GoldPricePerformaceImage}  ${path}
+Get text from gold performance image
+    [Arguments]  ${image_name}
+    capture element screenshot  ${gold_price_performace_image}  ${image_name}
+    ${text}  get text from image  ${OUTPUTDIR}/${image_name}
+    return from keyword  ${text}
 Get price change by time stamp
     [Arguments]  ${text}  ${time_stamp}
     ${text_redefine}  replace string  ${text}  \n\n  \n
@@ -25,3 +30,9 @@ Get price change by time stamp
     ${index}  evaluate  ${index} + 7
     ${value}  get from list  ${lines}  ${index}
     log  The price changes for ${time_stamp} is ${value}
+Get current gold price
+    [Arguments]  ${money_unit}  ${weight_unit}
+    select from list by value  ${current_gold_money_unit_select}  ${money_unit}
+    select from list by value  ${current_gold_weight_unit}  ${weight_unit}
+    ${price}  get text  ${current_price}
+    return from keyword  ${price}

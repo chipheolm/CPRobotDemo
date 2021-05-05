@@ -5,7 +5,7 @@ Library  Collections
 Library  BuiltIn
 *** Variables ***
 ${btmc_url}  https://btmc.vn
-${priceTable}  tag:table
+${price_table}  tag:table
 @{list_text}
 ${table_view}   xpath://tbody/tr[8]
 ${table_title}  xpath://body/main[1]/section[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody/tr/td[2]
@@ -14,7 +14,7 @@ Get buying gold price
     [Arguments]  ${list_text}  ${expected_gold_name}
     ${expected_index}  get index from list  ${list_text}  ${expected_gold_name}
     ${expected_index}  evaluate  ${expected_index} + 2
-    ${value}  Get Table Cell  ${priceTable}  ${expected_index}  5
+    ${value}  Get Table Cell  ${price_table}  ${expected_index}  5
     ${value}  evaluate  ${value}*1000
     return from keyword  ${value}
 Get gold tile list
