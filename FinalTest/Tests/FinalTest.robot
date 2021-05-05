@@ -17,17 +17,17 @@ Compare gold price from BTMC with SJC from btmc.vn
     ${list_text}  Get gold tile list
     get buying gold price  ${list_text}  VÀNG MIẾNG SJC
     get buying gold price  ${list_text}  VÀNG TRANG SỨC
-#Compare price between world gold price with SJC gold price
-#    [Tags]  TC1  TC2  TC3
-#    start test  ${urls}[0]
-#    end test
-#Get gold price change by time on GoldPrice
-#    [Tags]  TC1  TC2  TC3
-#    start test  ${urls}[1]
-#    Select money unit  VND
-#    Get Gold performance image  image.png
-#    ${text}  get text from image  ${OUTPUTDIR}/image.png
-#    Get price change by time stamp  ${text}  ${gold_change_time_stamp}[1]
-#    Get price change by time stamp  ${text}  ${gold_change_time_stamp}[2]
-#    end test
+Compare price between world gold price with SJC gold price
+    [Tags]  TC1  TC2  TC3
+    start test  ${urls}[0]
+    end test
+Get gold price change by time on GoldPrice
+    [Tags]  TC1  TC2  TC3
+    start test  ${urls}[1]
+    Select money unit  VND
+    Get Gold performance image  image.png
+    ${text}  get text from image  ${OUTPUTDIR}/image.png
+    Get price change by time stamp  ${text}  ${gold_change_time_stamp}[1]
+    Get price change by time stamp  ${text}  ${gold_change_time_stamp}[2]
+    end test
 
