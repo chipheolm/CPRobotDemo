@@ -8,7 +8,8 @@ ${btmc_url}  https://btmc.vn
 ${price_table}  tag:table
 @{list_text}
 ${table_view}   xpath://tbody/tr[8]
-${table_title}  xpath://body/main[1]/section[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody/tr/td[2]
+#${table_title}  xpath://body/main[1]/section[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody/tr/td[2]
+${table_title}  css:.bd_price_home tr:nth-child(3) td:nth-child(1),.bd_price_home tr:nth-child(4) td:nth-child(1),.bd_price_home tr:nth-child(2) td:nth-child(2),.bd_price_home tr:nth-child(n+5) td:nth-child(2)
 *** Keywords ***
 # 1 Ounce = 31.103476 g
 # 1 Tael = 37.5 g
@@ -31,8 +32,8 @@ Get gold tile list
     END
     return from keyword  ${list_text}
 Get 1 ounce gold price
-    # 1 Ounce = 0.82945 Tael. The prices got at BTMC are folow Vietnam mace/tael unit
     [Arguments]  ${input_price}  ${product_name}
+    log  1 Ounce = 0.82945 Tael. The prices got at BTMC are following Vietnam the mace/tael unit
     ${price}  evaluate  ${input_price}*10*0.82945
     log  1 Ounce ${product_name} is priced at ${price} VND
     return from keyword  ${price}
